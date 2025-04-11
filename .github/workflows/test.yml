@@ -45,7 +45,7 @@ jobs:
             test_results_dir="$proj/build/test-results/test"; \
             [ -d "$test_results_dir" ] && mv  "$test_results_dir"/*.xml  "test-results/"; \
           done
-        continue-on-error: true
+        # continue-on-error: true
 
       - name: Upload failure reports when test fails
         if: failure()
