@@ -1,20 +1,29 @@
 
-repositories {  
-    mavenCentral()
-}
 
 group = 'org.app'
 version = '1.0'
 
-subprojects {
+subprojects { 
+
     apply plugin: 'java'
     apply plugin: 'application'
+
+    repositories {  
+    mavenCentral()
+}
+    dependencies { 
+        // Junit5
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
+        testImplementation 'org.hamcrest:hamcrest:2.2'
+        testImplementation 'org.mockito:mockito-core:4.8.0'	
+        testImplementation 'org.assertj:assertj-core:3.11.1'
+    }
 
     java {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
+ 
     mainClassName = 'Main'
 
     test {
@@ -29,14 +38,7 @@ subprojects {
     }
 
 
-    dependencies { 
-     
-    // Junit5
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
-    testImplementation 'org.hamcrest:hamcrest:2.2'
-    testImplementation 'org.mockito:mockito-core:4.8.0'	
-    testImplementation 'org.assertj:assertj-core:3.11.1'
-}
+   
 }
  
 
