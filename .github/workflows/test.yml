@@ -32,6 +32,7 @@ jobs:
       
       - name: Prepare to test
         run: |
+          java -version
           chmod +x gradlew
           ./gradlew -v
 
