@@ -29,10 +29,14 @@ jobs:
           distribution: 'adopt'
           java-version: 17
           cache: 'gradle'
+      
+      - name: Prepare to test
+        run: |
+          chmod +x gradlew
+          ./gradlew -v
 
       - name: Test with Gradle
         run: |
-          chmod +x gradlew
           ./gradlew clean test --continue
           rm -rf test-results
           mkdir test-results
