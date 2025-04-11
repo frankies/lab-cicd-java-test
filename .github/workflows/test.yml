@@ -41,29 +41,33 @@ jobs:
           ./gradlew clean test --continue
         continue-on-error: true
       
-      - name: Create test results directory
-        run: |
-          rm -rf test-results
-          mkdir test-results
-          for proj in pj-*; do \
-            test_results_dir="$proj/build/test-results/test"; \
-            [ -d "$test_results_dir" ] && mv  "$test_results_dir"/*.xml  "test-results/"; \
-          done
+      # - name: Create test results directory
+      #   run: |
+      #     rm -rf test-results
+      #     mkdir test-results
+      #     for proj in pj-*; do \
+      #       test_results_dir="$proj/build/test-results/test"; \
+      #       [ -d "$test_results_dir" ] && mv  "$test_results_dir"/*.xml  "test-results/"; \
+      #     done
 
           
-      - name: Upload failure reports when test fails
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: junit-test-failure-report
-          path: |
-            ${{ github.workspace }}/**/build/reports/tests
+      # - name: Upload failure reports when test fails
+      #   if: failure()
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: junit-test-failure-report
+      #     path: |
+      #       ${{ github.workspace }}/**/build/reports/tests
             
       - name: Upload JUnit test results
         uses: actions/upload-artifact@v4
         with:
           name: junit-test-results
-          path: test-results
+          # path: test-results
+          path: |
+            ${{ github.workspace }}/**/build/test-results/test
+            ${{ github.workspace }}/**/build/reports/tests/test
+            ${{ github.workspace }}/**/build/test-results/TEST-*.xml
           retention-days: 3
 
   report:
