@@ -7,3 +7,5 @@
  */
 
 rootProject.name = 'lab-cicd-java-test'
+
+include 'pj-web', 'pj-domain'
