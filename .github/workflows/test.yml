@@ -41,7 +41,7 @@ jobs:
           ./gradlew clean test --continue
           rm -rf test-results
           mkdir test-results
-          for proj in $APP_PJ_PREFIX-*; do \
+          for proj in pj-*; do \
             test_results_dir="$proj/build/test-results/test"; \
             [ -d "$test_results_dir" ] && mv  "$test_results_dir"/*.xml  "test-results/"; \
           done
