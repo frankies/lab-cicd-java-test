@@ -93,3 +93,9 @@ jobs:
           name: JUnit Testing
           path: '**/TEST-*.xml'
           reporter: java-junit
+          max-annotations: 50
+          list-tests: failed
+          path-replace-backslashes: false
+          list-suites: all
+          fail-on-error: true
+          only-summary: false
