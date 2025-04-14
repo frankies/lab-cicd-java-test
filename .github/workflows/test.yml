@@ -98,4 +98,4 @@ jobs:
           path-replace-backslashes: false
           list-suites: all
           fail-on-error: true
-          only-summary: false
+          only-summary: true
