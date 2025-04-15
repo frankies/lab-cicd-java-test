@@ -87,9 +87,14 @@ jobs:
           name: junit-test-results
 
       - name: Test Report
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v2
         if: success() || failure()
         with:
           name: JUnit Testing
           path: '**/TEST-*.xml'
           reporter: java-junit
+          max-annotations: 50
+          list-tests: failed
+          list-suites: all
+          only-summary: false
+
