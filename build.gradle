@@ -7,6 +7,7 @@ subprojects {
 
     apply plugin: 'java'
     apply plugin: 'application'
+    apply plugin: 'jacoco'
 
     repositories {  
     mavenCentral()
@@ -36,6 +37,19 @@ subprojects {
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
     }
+
+    jacocoTestReport {
+        reports {
+            xml.required = true
+            csv.required = false
+            // html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+        }
+    }
+    test {
+        //useJUnitPlatform() 使用springjunit5测试需要这个
+        finalizedBy jacocoTestReport
+    }
+    
 
 
    
