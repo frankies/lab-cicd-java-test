@@ -83,7 +83,7 @@ jobs:
       - name: Upload JUnit test jacoco report
         uses: actions/upload-artifact@v4
         with:
-          name: junit-test-results
+          name: junit-test-jacoco-results
           # path: test-results
           path: |
            ${{ github.workspace }}/**/build/reports/jacoco/
