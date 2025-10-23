@@ -1,9 +1,5 @@
 {
     "recommendations": [
-        "vscjava.vscode-java-pack",
-        "gradle.gradle",
-        "GitHub.codespaces", 
-        "GitHub.copilot",
-        "GitHub.copilot-chat"
+        "humao.rest-client"
     ]
 }
