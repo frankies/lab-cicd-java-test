@@ -89,6 +89,10 @@ GET {{baseURL}}/redirect-to?url=/get
 
 
 ### Response anything you send
+
+#@ prompt username
+@createdAt = {{$datetime iso8601}}
+@modifiedBy = {{$processEnv USER}}
 PUT   {{baseURL}}/anything
 Accept: {{acceptJsonType}}
 Content-Type: {{contentJsonType}}
@@ -96,7 +100,16 @@ Content-Type: {{contentJsonType}}
 {
   "message": "This is a test message",
   "number": 12345,
-  "status": true
+  "status": true,
+  "createdAt": "{{createdAt}}",
+  "modifiedBy": "{{modifiedBy}}",
+  "user_name": "{{$dotenv USERNAME}}",
+    "request_id": "{{$guid}}",
+    "updated_at": "{{$timestamp}}",
+    "created_at": "{{$timestamp -1 d}}",
+    "review_count": "{{$randomInt 5 200}}",
+    "custom_date": "{{$datetime 'YYYY-MM-DD'}}",
+    "local_custom_date": "{{$localDatetime 'YYYY-MM-DD'}}"
 }
 
 
