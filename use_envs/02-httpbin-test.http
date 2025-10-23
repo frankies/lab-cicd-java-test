@@ -1,6 +1,6 @@
 
 
-@baseURL=http://localhost
+# @baseURL=http://localhost
 @acceptJsonType=application/json
 @contentJsonType=application/json
 

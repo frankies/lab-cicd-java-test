@@ -10,4 +10,14 @@
 docker run -p 80:80 kennethreitz/httpbin
 ```
 
+## Change the 'baseURL' in .vscode/settings.json
 
+```json
+{
+
+   "rest-client.environmentVariables": {
+    "$shared": {
+        ...
+        "baseURL": "http://localhost"
+    },
+```

@@ -4,18 +4,16 @@
     "$shared": {
         "version": "v1",
         "prodToken": "foo",
-        "nonProdToken": "bar"
+        "nonProdToken": "bar",
+        "baseURL": "http://localhost"
     },
     "local": {
-        "version": "v2",
-        "host": "localhost",
         "token": "{{$shared nonProdToken}}",
         "secretKey": "devSecret"
     },
     "production": {
-        "host": "example.com",
         "token": "{{$shared prodToken}}",
-        "secretKey" : "prodSecret"
+        "secretKey" : "{{process.env.PROD_SECRET_KEY}}",
     }
 }
 }
