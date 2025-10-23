@@ -1,0 +1,60 @@
+
+
+@baseURL=http://localhost
+@acceptJsonType=application/json
+@contentJsonType=application/json
+
+@acceptXml=text/xml
+
+### 
+#---- Example XML response from /xml endpoint ----
+# <?xml version='1.0' encoding='us-ascii'?>
+# <!--  A SAMPLE set of slides  -->
+# <slideshow 
+#     title="Sample Slide Show"
+#     date="Date of publication"
+#     author="Yours Truly"
+#     >
+#   <!-- TITLE SLIDE -->
+#   <slide type="all">
+#     <title>Wake up to WonderWidgets!</title>
+#   </slide>
+#   <!-- OVERVIEW -->
+#   <slide type="all">
+#     <title>Overview</title>
+#     <item>Why 
+#       <em>WonderWidgets</em> are great
+#     </item>
+#     <item/>
+#     <item>Who 
+#       <em>buys</em> WonderWidgets
+#     </item>
+#   </slide>
+# </slideshow>
+
+# @name getXmlResponse
+GET {{baseURL}}/xml 
+Accept: {{acceptXml}}
+
+
+### Get a  json
+# @name getJsonResponse
+GET {{baseURL}}/json
+Content-Type: application/json
+
+
+### 
+@firstSlideTitleFromXmls = {{getXmlResponse.response.body.//slide[1]/title}}
+@secSlideTitleFromJson = {{getJsonResponse.response.body.$.slideshow.slides[1].title}}
+POST {{baseURL}}/post
+Accept: {{acceptJsonType}}
+Content-Type: {{contentJsonType}}
+
+{ 
+  "firstSlideTitle": "{{firstSlideTitleFromXmls}}",
+  "secSlideTitleFromJson": "{{secSlideTitleFromJson}}"
+} 
+
+###
+
+GET {{baseURL}}/status/418
