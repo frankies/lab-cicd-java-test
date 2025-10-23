@@ -55,6 +55,54 @@ Content-Type: {{contentJsonType}}
   "secSlideTitleFromJson": "{{secSlideTitleFromJson}}"
 } 
 
-###
+### Get a teapot status
 
 GET {{baseURL}}/status/418
+
+### Get request headers back
+
+GET {{baseURL}}/headers
+
+### Get a 404 status
+GET {{baseURL}}/status/404
+
+# --- Cache ---
+
+### Get a 200 status with cache
+# @name cache60
+GET {{baseURL}}/cache?s=HelloWorld&max_age=60
+
+
+### Get cached data by etag
+GET {{baseURL}}/etag/{{cache60.response.headers.etag}}
+
+### Get response headers
+GET {{baseURL}}/response-headers?freeform=hello-world&sample=value
+
+
+### Get a delayed response
+GET {{baseURL}}/delay/3
+
+### Get a redirect response
+GET {{baseURL}}/redirect-to?url=/get
+
+
+
+### Response anything you send
+PUT   {{baseURL}}/anything
+Accept: {{acceptJsonType}}
+Content-Type: {{contentJsonType}}
+
+{
+  "message": "This is a test message",
+  "number": 12345,
+  "status": true
+}
+
+
+## --- Cookies ---
+### Set a cookie
+GET {{baseURL}}/cookies/set?mycookie=myvalue
+
+### Get cookies
+GET {{baseURL}}/cookies
