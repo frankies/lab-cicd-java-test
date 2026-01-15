@@ -1,3 +1,3 @@
-# Write a dev readme
+# DevContainer lab in Vscode
 
-- RestClient http for vscode in branch `rest-client-usage`
+Build a jdk17 development in remote server by VsCode.

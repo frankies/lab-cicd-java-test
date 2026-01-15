@@ -1,0 +1,45 @@
+#
+# postgresql.conf.additional  - YNA Standard settings
+#
+#archive_command                         = 'gzip -1 -c %p > /var/lib/postgresql/backups/archive/%f.gz'
+#archive_mode                            = always
+#archive_timeout                         = 30min
+checkpoint_completion_target            = 0.9
+checkpoint_timeout                      = 30min
+deadlock_timeout                        = 3s
+listen_addresses                        = '0.0.0.0'
+log_autovacuum_min_duration             = 20s
+log_checkpoints                         = on
+#log_destination                         = 'stderr,csvlog'
+#log_directory                           = '/var/log/pgsql'
+#log_file_mode                           = 0644
+#log_filename                            = 'postgresql-%Y-%m-%d_%H%M%S.log'
+#log_line_prefix                         = '%m %p %l %u %d %r %a '
+log_lock_waits                          = on
+log_min_duration_statement              = 60s
+log_temp_files                          = 0
+#logging_collector                       = on
+maintenance_work_mem                    = 128MB
+random_page_cost                        = 2
+shared_preload_libraries                = 'pg_stat_statements, auto_explain'
+track_functions                         = all
+track_io_timing                         = on
+#wal_buffers                             = -1
+#wal_compression                         = on
+#wal_level                               = replica
+#max_wal_senders                         = 10
+
+# pg_stat_statements
+pg_stat_statements.track                = all
+
+# auto_explain
+auto_explain.log_min_duration           = -1
+
+# ---------------------- 
+# For Docker Environment
+# ---------------------- 
+archive_mode                            = off
+logging_collector                       = off
+
+max_wal_senders                         = 0
+wal_level                               = minimal

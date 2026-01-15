@@ -1,0 +1,22 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "postgres user={{DB_USERNAME}}",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "Username": "{{DB_USERNAME}}",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "appdb"
+    },
+    "2": {
+      "Name": "postgres user=postgres",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "Username": "{{POSTGRES_USER}}",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "postgres"
+    }
+  }
+}

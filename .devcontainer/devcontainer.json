@@ -1,0 +1,15 @@
+{
+  "name": "Java 17 Development Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "postCreateCommand": [
+    "java -version"
+  ],
+  "remoteUser": "root",
+  "service": "workspace",
+  "workspaceFolder": "/workspaces",
+  "runServices": [
+    "postgres",
+    "pgadmin"
+  ],
+  "shutdownAction": "stopCompose"
+}
