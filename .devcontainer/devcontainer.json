@@ -6,7 +6,7 @@
   ],
   "remoteUser": "root",
   "service": "workspace",
-  "workspaceFolder": "/workspaces",
+  "workspaceFolder": "/workspace",
   "runServices": [
     "postgres",
     "pgadmin"
